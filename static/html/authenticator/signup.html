@@ -1,0 +1,13 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block index_base_body%}
+{% if user.is_authenticated%}
+<script>
+    window.location.href = "{% url 'main_view'%}";
+</script>
+{% endif %}
+<h1>Signup</h1>
+
+
+{% endblock %}

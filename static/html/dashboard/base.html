@@ -1,0 +1,26 @@
+{% extends 'html/blank.html' %}
+{% load static %}
+
+{% block body%}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'img/logo_small.png' %}" alt="Logo" width="18" height="24" class="d-inline-block align-text-top">    
+                Life Lines
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link" href="{% url 'main_view' %}">Dashboard</a>
+                    <a class="nav-link" href="{% url 'calendar' %}">Calender</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block dashboard_base_body%}
+
+    {% endblock %}
+{% endblock %}

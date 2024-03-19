@@ -1,0 +1,50 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block index_base_body%}
+{% if user.is_authenticated%}
+<script>
+    window.location.href = "{% url 'main_view'%}";
+</script>
+{% endif %}
+
+<main>
+    <div class="p-0 d-flex justify-content-center bg-light vh-100">
+        <div class="">
+            <div class="" style="max-width: 345px; margin: 0 auto;">
+                <form method="POST" class="form-group p-4 mx-2 rounded-5 text-dark mt-5" style="background-color:#e9c41e;">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                        <div id="errorID" class="alert alert-danger rounded p-1 w-20">
+                            <ul>
+                                {% for error in form.non_field_errors %}
+                                    <li class="error">{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    <div class="d-flex align-items-center mb-3 pb-1 mb-3 mt-1">
+                        <span class="h1 fw-bold mb-0">Login</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        {{ form.username}}
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        {{ form.password}}
+                      </div>
+                    <div class="d-grid gap-2 py-4">
+                        <button class="btn btn-dark btn-lg btn-block" type="submit" name="submit">Login</button>
+                    </div>
+        
+                    <a class="small text-dark" href="#!">Forgot password?</a>
+                    <p class="mb-5 big pb-lg-2">Don't have an account? <a href="{% url 'signup' %}" class="text-dark">Register here</a></p>
+                    <a href="#!" class="small text-muted">Terms of use.</a>
+                    <a href="#!" class="small text-muted">Privacy policy</a>
+                </form>
+            </div>     
+        </div> 
+    </div>
+</main>
+{% endblock %}

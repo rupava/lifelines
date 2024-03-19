@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 def signup(request):
     context={
-        'title': 'Landing',
+        'title': 'Signup',
     }
     
     return render(request, 'html/authenticator/signup.html', context)

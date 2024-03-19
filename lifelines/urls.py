@@ -6,4 +6,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',main_views.home,name="home"),
     path('auth/',include('authenticator.urls'),name="auth"),
+    path('dashboard/',include('dashboard.urls'),name="dashboard"),
 ]
