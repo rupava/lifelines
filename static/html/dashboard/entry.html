@@ -2,7 +2,34 @@
 {% load static %}
 
 {% block dashboard_base_body%}
-<div class="container">
-    <h1>Entry</h1>
+<div class="container pt-4">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="d-flex flex-row justify-content-between">
+            <div class="">
+                <h1 id="entry-title" contenteditable="true" name="entry-title" class="px-1 pointer" style="display: inline; width: auto;"></h1>
+            </div>
+            <div class="">- Date: {{entry_date}}</div>
+        </div>
+        <hr>
+        <textarea id="entry-content" name="entry-content" class="entry-content"></textarea>
+        <div class="d-flex flex-row-reverse mt-2">
+            <button class="btn btn-success" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-floppy2-fill" viewBox="0 0 16 16">
+                    <path d="M12 2h-2v3h2z"/>
+                    <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v13A1.5 1.5 0 0 0 1.5 16h13a1.5 1.5 0 0 0 1.5-1.5V2.914a1.5 1.5 0 0 0-.44-1.06L14.147.439A1.5 1.5 0 0 0 13.086 0zM4 6a1 1 0 0 1-1-1V1h10v4a1 1 0 0 1-1 1zM3 9h10a1 1 0 0 1 1 1v5H2v-5a1 1 0 0 1 1-1"/>
+                </svg>
+            </button>
+        </div>
+    </form>
 </div>
+
+{% if not state %}
+<script>
+    let titleObj = document.getElementById("entry-title");
+    titleObj.innerHTML = "New Entry"
+</script>
+{% endif %}
+<!-- <script src="{% static 'js/entry.js'%}"></script> -->
+
 {% endblock %}

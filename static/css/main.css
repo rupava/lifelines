@@ -18,7 +18,6 @@
     text-align: center;
 }
 
-
 .custom-day-header a {
     text-decoration: none;
     cursor: default;
@@ -40,4 +39,21 @@
 .fc-day-today .fc-daygrid-day-frame:hover {
     transform: scale(1.01);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.entry-content{
+    width: 100%;
+    height: 50vh;
+    resize: none;
+    background-color: #f6eee3;
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.hide { 
+    display: none;
+}
+
+.pointer{
+    cursor: pointer;
 }
