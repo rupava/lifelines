@@ -1,0 +1,43 @@
+/* CALENDER */
+#calendar .fc-toolbar {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.custom-day-header {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: Arial, sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+
+.custom-day-header a {
+    text-decoration: none;
+    cursor: default;
+    color: inherit;
+}
+
+.fc-day-today .fc-daygrid-day-frame {
+    background-color: #B7CE63;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.fc-daygrid-day-frame .fc-daygrid-day-top a{
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+
+.fc-day-today .fc-daygrid-day-frame:hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
