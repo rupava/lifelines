@@ -57,3 +57,30 @@
 .pointer{
     cursor: pointer;
 }
+
+.no-border{
+    border: none;
+}
+
+.fc-daygrid-day-frame:has(.fc-event-title) {
+    background-color: rgb(0, 157, 255);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    color: black;
+}
+
+.fc-daygrid-day-frame:has(.fc-event-title):hover {
+    transform: scale(1.01);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.fc-event {
+    background-color: inherit;
+    border: none;
+}
+
+.fc-event .fc-event-title{
+    color: black;
+    padding-left: 1rem;
+}
+

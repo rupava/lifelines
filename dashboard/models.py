@@ -11,4 +11,4 @@ class Entry(models.Model):
         unique_together = [['user', 'date']]
 
     def __str__(self):
-        return self.title
+        return self.entry_title

@@ -6,10 +6,8 @@
     <form method="POST">
         {% csrf_token %}
         <div class="d-flex flex-row justify-content-between">
-            <div class="">
-                <h1 id="entry-title" contenteditable="true" name="entry-title" class="px-1 pointer" style="display: inline; width: auto;"></h1>
-            </div>
-            <div class="">- Date: {{entry_date}}</div>
+            <input type="text" id="entry-title" name="entry-title" class="px-1 h1 pointer flex-fill no-border me-2"></h1>
+            <div class="align-self-center">- Date: {{entry_date}}</div>
         </div>
         <hr>
         <textarea id="entry-content" name="entry-content" class="entry-content"></textarea>
@@ -19,17 +17,38 @@
                     <path d="M12 2h-2v3h2z"/>
                     <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5v13A1.5 1.5 0 0 0 1.5 16h13a1.5 1.5 0 0 0 1.5-1.5V2.914a1.5 1.5 0 0 0-.44-1.06L14.147.439A1.5 1.5 0 0 0 13.086 0zM4 6a1 1 0 0 1-1-1V1h10v4a1 1 0 0 1-1 1zM3 9h10a1 1 0 0 1 1 1v5H2v-5a1 1 0 0 1 1-1"/>
                 </svg>
+                Save
             </button>
         </div>
     </form>
 </div>
 
+<!-- {% if messages%}
+{% for message in messages%}
+<script>
+    let toastObj = document.getElementById('message_toast');
+    toastObj.classList.add('{{message.tags}}');
+    let newToastObj = new bootstrap.Toast(document.getElementById('myToast'));
+    newToastObj.show();
+</script>
+{% endfor %}
+{% endif %} -->
+
 {% if not state %}
 <script>
     let titleObj = document.getElementById("entry-title");
-    titleObj.innerHTML = "New Entry"
+    titleObj.value = "New Entry"
 </script>
 {% endif %}
-<!-- <script src="{% static 'js/entry.js'%}"></script> -->
+
+{% if state %}
+<script>
+    let titleObj = document.getElementById("entry-title");
+    let contentObj = document.getElementById("entry-content");
+    titleObj.value = '{{data.entry_title}}';
+    contentObj.value = '{{data.entry_content}}';
+    
+</script>
+{% endif %}
 
 {% endblock %}

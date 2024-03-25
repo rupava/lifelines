@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 from dotenv import load_dotenv
+from django.contrib.messages import constants as messages
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -95,3 +96,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = "/dashboard/"
 LOGOUT_REDIRECT_URL = "/"
+
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'text-bg-secondary',
+    messages.INFO: 'text-bg-info',
+    messages.SUCCESS: 'text-bg-success',
+    messages.WARNING: 'text-bg-warning',
+    messages.ERROR: 'text-bg-danger',
+}
